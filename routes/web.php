@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ShortURLWebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+Route::post('/',[ShortURLWebController::class, 'shortURL'])->name('shorten');
+Route::get('/{code}',[ShortURLWebController::class, 'redirect'])->name('redirect');
