@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>403 - Mazer Admin Dashboard</title>
+        <title>URL Shortener JDK</title>
         <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}" />
         <link rel="stylesheet" href="{{ asset('assets/css/pages/error.css') }}" />
         <link
@@ -65,7 +65,6 @@
             try {
                 var successful = document.execCommand("copy");
                 var msg = successful ? "successful" : "unsuccessful";
-                console.log("Fallback: Copying text command was " + msg);
             } catch (err) {
                 console.error("Fallback: Oops, unable to copy", err);
             }
@@ -79,7 +78,6 @@
             }
             navigator.clipboard.writeText(text).then(
                 function() {
-                    console.log("Async: Copying to clipboard was successful!");
                 },
                 function(err) {
                     console.error("Async: Could not copy text: ", err);
@@ -90,8 +88,10 @@
         let copyBtn = document.getElementById('copy')
         let text = document.getElementById('')
         copyBtn.addEventListener("click", function(event) {
-            console.log('loh kok bisa dek')
             copyTextToClipboard();
+
+            copyBtn.textContent = 'Copied!'
+            console.log(copyBtn.value)
         });
     </script>
 </html>
